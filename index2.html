@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form id="myForm">
+        <input type="text" placeholder="Ismingizni kiriting">
+        <button type="submit">Yuborish</button>
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(e){
+            e.preventDefault(); // sahifa yangilanmasin
+            alert("Forma yuborildi!");
+        });
+    </script>
+
+    <input id="name" type="text" placeholder="Ismingiz">
+
+    <script>
+        document.getElementById("name").addEventListener("focus", function(){
+            this.style.backgroundColor = "lightyellow";
+        });
+    </script>
+
+    <input id="email" type="email" placeholder="Email">
+
+    <script>
+        document.getElementById("email").addEventListener("blur", function(){
+            if(!this.value.includes("@")){
+                alert("Iltimos, to'g'ri email kiriting!");
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("keydown", event => {
+            console.log('key: ' + event.key);
+            console.log('code: ' + event.code);
+        });
+    </script>
+
+</body>
+</html>

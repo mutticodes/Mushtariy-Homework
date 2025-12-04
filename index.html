@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>HTML CSS va JS</h1>
+            <p>Random sonni topuvchi dastur</p>
+        </div>
+        
+        <div class="right">
+            <label for="min">Min:</label>
+            <input type="number" name="" id="min">
+            <br>
+            <br>
+            <label for="max">Max:</label>
+            <input type="number" name="" id="max">
+            
+            <button id="hisoblash">Hisoblash</button>
+            
+            <h1 id="natija">#</h1>
+        </div>
+    </div>
+    
+    <script>
+        const getRandomNumber = (min, max) => {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        
+        const hisoblash = () => {
+            let minEl = document.querySelector("#min");
+            let maxEl = document.querySelector("#max");
+            
+            let min = Number(minEl.value);
+            let max = Number(maxEl.value);
+            
+            if (minEl.value === "" || maxEl.value === "") {
+                alert("Min va Max qiymatlarini kiriting.");
+                return;
+            }
+            
+            if (min > max) {
+                alert("To'g'ri qiymat kiriting: Min < Max bo'lishi kerak.");
+                return;
+            }
+            
+            let natijaEl = document.querySelector("#natija");
+            
+            natijaEl.textContent = getRandomNumber(min, max);
+
+            let box = document.querySelector(".right"); 
+            box.style.color = 'white';
+            box.style.backgroundColor = 'purple';
+        }
+        
+        let hisobla = document.querySelector("#hisoblash");
+        hisobla.addEventListener('click', hisoblash);
+    </script>
+</body>
+</html>
